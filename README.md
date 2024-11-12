@@ -1,4 +1,3 @@
-# FULL_ADDER_SUBTRACTOR
 
 Implementation-of-Full-Adder-and-Full-subtractor-circuit
 
@@ -43,13 +42,52 @@ Borrow out = A'Bin + A'B + BBin
 Write the detailed procedure here
 
 **Program:**
-
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+```
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+Developed by:P.Pooja sri 
+RegisterNumber:24007629*/
+```
+```
+module EXP04(sum,cout,a,b,cin);
+output sum;
+output cout;
+input a;
+input b;
+input cin;
+wire s1,c1,c2;
+xor(s1,a,b);
+and(c1,a,b);
+xor(sum,s1,cin);
+and(c2,s1,cin);
+or(cout,c2,c1);
+endmodule
+```
+FULL- SUBTRACTOR:
+```
+module EXP04 (df,bo,a,b,bin);
+output df;
+output bo;
+input a;
+input b;
+input bin;
+wire w1,w2,w3;
+assign w1=a^b;
+assign w2=(~a&b);
+assign w3=(~w1&bin);
+assign df=w1^bin;
+assign bo=w2|w3;
+endmodule
+```
 
 **RTL Schematic**
+![image](https://github.com/user-attachments/assets/1c9fd400-29e4-48f2-9678-3be609e26926)
+![image](https://github.com/user-attachments/assets/1ed09019-75d9-461a-b2ce-1d688bb2b488)
+
 
 **Output Timing Waveform**
+![image](https://github.com/user-attachments/assets/8048bfc4-c75d-4910-be7a-00c94985ce15)
+![image](https://github.com/user-attachments/assets/58316c89-73d1-4acf-990e-df3b5c866888)
+
 
 **Result:**
 
